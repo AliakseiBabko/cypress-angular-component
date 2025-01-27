@@ -1,59 +1,60 @@
-# CypressAngularComponent
+# Cypress Angular Component with Storybook
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+This project demonstrates how to integrate **Cypress** with **Angular** for component testing, including support for **Storybook** as a visual testing environment.
 
-## Development server
+## Installation Guide
 
-To start a local development server, run:
+### 1. **Install Project Dependencies**
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Once you have Angular CLI set up, install the project dependencies by running the following command in your project folder:
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+This will install all necessary dependencies, including **Angular**, **Angular Material**, **Cypress**, and **Storybook**.
+
+---
+
+## Running the Project
+
+### 1. **Running the Application**
+
+To start the Angular development server:
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+This will start the application and serve it at `http://localhost:4200`. The application will automatically reload when you make changes to the source files.
 
-To build the project run:
+### 2. **Running Component Tests (without Storybook)**
+
+To run component tests using **Cypress** without Storybook (i.e., testing standalone Angular components), use the following script:
 
 ```bash
-ng build
+npm run test:component
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+This will open Cypress in **component testing mode**. It will look for your component test files under the `cypress/component` directory, where you can test components in isolation.
 
-## Running unit tests
+For example, to test a `MatCheckbox` component, you would write tests in the `cypress/component/mat-checkbox.cy.ts` file.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### 3. **Running Component Tests (with Storybook)**
+
+If you want to test your components in the context of **Storybook** (i.e., testing components as they're displayed in Storybook stories), use this command:
 
 ```bash
-ng test
+npm run test:inStorybook
 ```
 
-## Running end-to-end tests
+This will open **Cypress** in **end-to-end testing mode**. Cypress will visit the locally running Storybook instance at `http://localhost:6006` and run the tests for the components you’ve created stories for in Storybook.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+### Notes
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- **Storybook**: For any new component, create a story under `src/stories`. This allows you to interactively develop the component and test it in isolation with **Cypress**.
+- **Cypress**: Cypress supports both component testing and end-to-end testing, making it flexible for various testing scenarios.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+By following the above instructions, you can run both unit and component tests for your Angular application, including testing your components in **Storybook** using **Cypress**. Let me know if you need further assistance!

@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve",
+    "test:inStorybook": "cypress open --e2e",
     "test:component": "cypress open --component",
     "storybook": "ng run cypress-angular-component:storybook",
-    "build-storybook": "ng run cypress-angular-component:build-storybook",
-    "test-storybook": "test-storybook"
+    "build-storybook": "ng run cypress-angular-component:build-storybook"
   },
   "private": true,
   "dependencies": {
