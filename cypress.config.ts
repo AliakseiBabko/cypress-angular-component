@@ -8,4 +8,10 @@ export default defineConfig({
     },
     specPattern: "**/*.cy.ts",
   },
+  e2e: {
+    baseUrl: 'http://localhost:6006',
+    setupNodeEvents(on, config) {},
+    supportFile: false,
+  }
 });
+
